@@ -1,13 +1,16 @@
 alert("Bem vindo ao jogo da adivinhacao");
 
-let chute;
+let numeroMaximo = 150; 
 
-let numeroSecreto = 27; 
+let numeroSecreto = parseInt(Math.random() * numeroMaximo + 1); 
+
+let chute;
+let tentativas = 1; 
 
 while(numeroSecreto != chute) 
 {
 
-    chute = prompt("Tente acertar o número secreto...")
+    chute = prompt(`Tente acertar o número secreto de 1 a ${numeroMaximo}`);
     let acertou = numeroSecreto == chute;
     let maior = numeroSecreto > chute;
 
@@ -25,5 +28,9 @@ while(numeroSecreto != chute)
         {
             console.log("O numero secreto é menor")
         }
+        tentativas++;
     }
 }
+let palavraTentativas = tentativas > 1 ? "tentativas" : "tentativa";
+
+alert(`Parabéns, você descobriu que o número secreto é ${numeroSecreto} em ${tentativas} ${palavraTentativas}`)
