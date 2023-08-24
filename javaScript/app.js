@@ -1,5 +1,13 @@
-let titulo = document.querySelector("");
+let titulo = document.querySelector("h1");
+titulo.innerHTML = "Jogo da Adivinhação!"
 
+let paragrafo = document.querySelector("p");
+paragrafo.innerHTML = "Tente Advinhar o número entre 1 e 10";
+
+function verificarChute()
+{
+    console.log("Botão clicado");
+}
 /*
 alert("Bem vindo ao jogo da adivinhacao");
 
