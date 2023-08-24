@@ -1,3 +1,6 @@
+let titulo = document.querySelector("");
+
+/*
 alert("Bem vindo ao jogo da adivinhacao");
 
 let numeroMaximo = 150; 
@@ -34,3 +37,4 @@ while(numeroSecreto != chute)
 let palavraTentativas = tentativas > 1 ? "tentativas" : "tentativa";
 
 alert(`Parabéns, você descobriu que o número secreto é ${numeroSecreto} em ${tentativas} ${palavraTentativas}`)
+*/
