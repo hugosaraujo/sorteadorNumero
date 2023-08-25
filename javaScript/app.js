@@ -1,21 +1,30 @@
-let titulo = document.querySelector("h1");
-titulo.innerHTML = "Jogo da Adivinhação!"
+let numeroSecreto = gerarNumeroAleatorio();
 
-let paragrafo = document.querySelector("p");
-paragrafo.innerHTML = "Tente Advinhar o número entre 1 e 10";
+function exibirTextoNaTela(tag, texto)
+{
+    let campo = document.querySelector(tag);
+    campo.innerHTML = texto;
+}
+function gerarNumeroAleatorio()
+{
+    return parseInt(Math.random() * 10 + 1)
+}
 
 function verificarChute()
 {
-    console.log("Botão clicado");
+    let chute = document.querySelector("input").value;
+    console.log(chute == numeroSecreto);
 }
+
+exibirTextoNaTela("h1", "Jogo de Adivinhação!");
+exibirTextoNaTela("p", "Tente Adivinhar o numero entre 1 e 10");
+
+
 /*
 alert("Bem vindo ao jogo da adivinhacao");
 
 let numeroMaximo = 150; 
 
-let numeroSecreto = parseInt(Math.random() * numeroMaximo + 1); 
-
-let chute;
 let tentativas = 1; 
 
 while(numeroSecreto != chute) 
