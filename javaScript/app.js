@@ -1,9 +1,10 @@
-let tenativas = 1; 
+let tentativas = 1;
+let campo;  
 let numeroSecreto = gerarNumeroAleatorio();
 
 function exibirTextoNaTela(tag, texto)
 {
-    let campo = document.querySelector(tag);
+    campo = document.querySelector(tag);
     campo.innerHTML = texto;
 }
 function gerarNumeroAleatorio()
@@ -14,10 +15,14 @@ function gerarNumeroAleatorio()
 function verificarChute()
 {
     let chute = document.querySelector("input").value;
+    let variacaoPalavraTentativas = tentativas > 1 ? "tentativas" : "tentativa";
+    let mensagemAcerto = `Parabéns, você adivinhou o número secreto em ${tentativas} ${variacaoPalavraTentativas}`;
+
     if (chute == numeroSecreto)
     {
         exibirTextoNaTela("h1", "Acertou!");
-        exibirTextoNaTela("p", "Parabéns, você adivinhou o número secreto");
+        exibirTextoNaTela("p", mensagemAcerto);
+        
     }
     else 
     {
@@ -32,14 +37,12 @@ function verificarChute()
             exibirTextoNaTela("h1", "ERROU!");
             exibirTextoNaTela("p", "O número secreto é menor");
         }
-        tenativas++;
+        tentativas++;
+        limparCampo();
     }
-     
-    //adicionar uma variável de tentativas no início do código; 
-    //reiniciar ao jogo quando o usuário acertar o número secreto; 
-    console.log(chute == numeroSecreto);
+    
 }
-//criar uma função que impessa o número aleatótio de ser utilizado
+//criar uma função que impeça o número aleatótio de ser utilizado
 //crie uma lista para inserir os números aleatórios que já foram sorteados; 
 //crie uma lógica condicional para ver se o número foi ou não sorteado, 
     //se for, sorteie outro número.
@@ -48,41 +51,9 @@ function verificarChute()
 //Crie uma função exibeInformaçãoNaTela, para evitar a repetição desse código a seguir; 
 exibirTextoNaTela("h1", "Jogo de Adivinhação!");
 exibirTextoNaTela("p", "Tente Adivinhar o numero entre 1 e 10");
-
-//criar função para limpar a tela após o usuário tentar adivinhar o número; 
-
-/*
-alert("Bem vindo ao jogo da adivinhacao");
-
-let numeroMaximo = 150; 
-
-let tentativas = 1; 
-
-while(numeroSecreto != chute) 
+ 
+function limparCampo()
 {
-
-    chute = prompt(`Tente acertar o número secreto de 1 a ${numeroMaximo}`);
-    let acertou = numeroSecreto == chute;
-    let maior = numeroSecreto > chute;
-
-    if (acertou)
-    {
-        console.log(`Você Acertou! O número secreto é ${numeroSecreto}`)
-    } 
-    else 
-    {
-        if(maior) 
-        {
-            console.log("O número secreto é maior")
-        } 
-        else
-        {
-            console.log("O numero secreto é menor")
-        }
-        tentativas++;
-    }
+    chute = document.querySelector("input");
+    chute.value = " ";
 }
-let palavraTentativas = tentativas > 1 ? "tentativas" : "tentativa";
-
-alert(`Parabéns, você descobriu que o número secreto é ${numeroSecreto} em ${tentativas} ${palavraTentativas}`)
-*/
