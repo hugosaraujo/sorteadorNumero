@@ -1,5 +1,7 @@
+let listaNumerosSorteados = [];
 let tentativas = 1;
 let campo;  
+let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 
 function exibirTextoNaTela(tag, texto)
@@ -9,7 +11,21 @@ function exibirTextoNaTela(tag, texto)
 }
 function gerarNumeroAleatorio()
 {
-    return parseInt(Math.random() * 10 + 1)
+    let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
+    let quantidadeElementosLista = listaNumerosSorteados.length; 
+
+    if(quantidadeElementosLista == 3)
+    {
+        listaNumerosSorteados = [];
+    }
+    if (listaNumerosSorteados.includes(numeroEscolhido))
+    {
+        return gerarNumeroAleatorio();
+    } else 
+    {
+        listaNumerosSorteados.push(numeroEscolhido);
+        return numeroEscolhido;
+    }
 }
 
 function verificarChute()
@@ -42,13 +58,6 @@ function verificarChute()
     }
     
 }
-//criar uma função que impeça o número aleatótio de ser utilizado
-//crie uma lista para inserir os números aleatórios que já foram sorteados; 
-//crie uma lógica condicional para ver se o número foi ou não sorteado, 
-    //se for, sorteie outro número.
-    //caso contrário, flua com o jogo novamente; 
-
-//Crie uma função exibeInformaçãoNaTela, para evitar a repetição desse código a seguir; 
 exibirTextoNaTela("h1", "Jogo de Adivinhação!");
 exibirTextoNaTela("p", "Tente Adivinhar o numero entre 1 e 10");
  
