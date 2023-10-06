@@ -31,14 +31,16 @@ function gerarNumeroAleatorio()
 function verificarChute()
 {
     let chute = document.querySelector("input").value;
-    let variacaoPalavraTentativas = tentativas > 1 ? "tentativas" : "tentativa";
-    let mensagemAcerto = `Parabéns, você adivinhou o número secreto em ${tentativas} ${variacaoPalavraTentativas}`;
+    
 
     if (chute == numeroSecreto)
     {
         exibirTextoNaTela("h1", "Acertou!");
+        let variacaoPalavraTentativas = tentativas > 1 ? "tentativas" : "tentativa";
+        let mensagemAcerto = `Parabéns, você adivinhou o número secreto em ${tentativas} ${variacaoPalavraTentativas}`;
         exibirTextoNaTela("p", mensagemAcerto);
-        
+        limparCampo();
+        document.getElementById("reiniciar").removeAttribute("disabled");
     }
     else 
     {
