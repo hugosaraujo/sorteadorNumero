@@ -14,14 +14,15 @@ function gerarNumeroAleatorio()
     let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
     let quantidadeElementosLista = listaNumerosSorteados.length; 
 
-    if(quantidadeElementosLista == 3)
+    if(quantidadeElementosLista == numeroLimite)
     {
         listaNumerosSorteados = [];
     }
-    if (listaNumerosSorteados.includes(numeroEscolhido))
+    else if (listaNumerosSorteados.includes(numeroEscolhido))
     {
         return gerarNumeroAleatorio();
-    } else 
+    } 
+    else 
     {
         listaNumerosSorteados.push(numeroEscolhido);
         return numeroEscolhido;
