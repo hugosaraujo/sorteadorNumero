@@ -60,11 +60,24 @@ function verificarChute()
     }
     
 }
-exibirTextoNaTela("h1", "Jogo de Adivinhação!");
-exibirTextoNaTela("p", "Tente Adivinhar o numero entre 1 e 10");
- 
+function exibirMensagemInicial()
+{
+    exibirTextoNaTela("h1", "Jogo de Adivinhação!");
+    exibirTextoNaTela("p", "Tente Adivinhar o numero entre 1 e 10");    
+}
+exibirMensagemInicial();
+
 function limparCampo()
 {
     chute = document.querySelector("input");
     chute.value = " ";
+}
+
+function reiniciarJogo() 
+{
+    numeroSecreto = gerarNumeroAleatorio();
+    limparCampo();
+    tentativas = 1;
+    exibirMensagemInicial();
+    document.getElementById("reiniciar").setAttribute("disabled", true);
 }
